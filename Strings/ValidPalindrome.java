@@ -2,24 +2,24 @@ package Strings;
 
 public class ValidPalindrome{
     public boolean isPalindrome(String s) {
-        String palindromeString = "";
+        StringBuilder sb = new StringBuilder();
         s = s.trim().toLowerCase();
+
         for(int i = 0; i < s.length(); i++){
             if((s.charAt(i) >= 'a' && s.charAt(i) <= 'z') || (s.charAt(i) >= '0' && s.charAt(i) <= '9')){
-                palindromeString += s.charAt(i);
+                sb.append(s.charAt(i));
             }
         }
-        int left = 0, right = palindromeString.length() - 1;
-        while(left < right){
-            if(!(palindromeString.charAt(left) == palindromeString.charAt(right))){
+
+        
+        int start = 0, end = sb.length()-1; 
+        while(start < end){
+            if(!(sb.charAt(start) == sb.charAt(end))){
                 return false;
             }
-            left++;
-            right--;
-
+            start++;
+            end--;
         }
         return true;
-        
-    }
-    
+    } 
 }

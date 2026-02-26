@@ -10,18 +10,15 @@ public class GroupAnagrams {
         List<List<String>> list = new ArrayList<>();
         HashMap<String, Integer> map = new  HashMap<>();
 
-        for(int i = 0; i < strs.length; i++){
-            String s = strs[i];
+        for (String s : strs) {
             char ch[] = s.toCharArray();
             Arrays.sort(ch);
             s = new String(ch);
-
             if(!map.containsKey(s)){
                 map.put(s, list.size());
                 list.add(new ArrayList<>());
             }
-
-            list.get(map.get(s)).add(strs[i]);
+            list.get(map.get(s)).add(s);
         }
 
             return list;
